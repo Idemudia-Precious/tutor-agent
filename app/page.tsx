@@ -7,7 +7,7 @@ import React from "react";
 const Page = () => {
   return (
     <main>
-      <h1 className="text-2xl underline">Popular Companions</h1>
+      <h1 className="text-2xl underline">Popular Tutor-Agents</h1>
       <section className="home-section">
         <CompanionCard
           id="123"
