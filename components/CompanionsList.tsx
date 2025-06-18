@@ -23,24 +23,24 @@ const CompanionsList = ({
 }: CompanionsListProps) => {
   return (
     <article className={cn("companion-list", classNames)}>
-      <h2 className="font-bold text-3xl">{title}</h2>
+      <h2 className="font-semibold text-3xl text-gray-800 mb-4">{title}</h2>
 
-      <Table>
+      <Table className="min-w-full bg-white rounded-lg shadow-md">
         <TableHeader>
-          <TableRow>
-            <TableHead className="text-lg w-2/3">Lessons</TableHead>
-            <TableHead className="text-lg">Subject</TableHead>
-            <TableHead className="text-lg text-right">Duration</TableHead>
+          <TableRow className="bg-gray-100">
+            <TableHead className="text-lg font-semibold text-gray-600 py-3">Lessons</TableHead>
+            <TableHead className="text-lg font-semibold text-gray-600 py-3">Subject</TableHead>
+            <TableHead className="text-lg font-semibold text-gray-600 py-3 text-right">Duration</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {companions?.map(({ id, subject, name, topic, duration }) => (
-            <TableRow key={id}>
+            <TableRow key={id} className="hover:bg-gray-50 transition duration-200">
               <TableCell>
                 <Link href={`/companions/${id}`}>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3 py-3">
                     <div
-                      className="size-[72px] flex items-center justify-center rounded-lg max-md:hidden"
+                      className="w-16 h-16 flex items-center justify-center rounded-lg max-md:hidden"
                       style={{ backgroundColor: getSubjectColor(subject) }}
                     >
                       <Image
@@ -50,15 +50,15 @@ const CompanionsList = ({
                         height={35}
                       />
                     </div>
-                    <div className="flex flex-col gap-2">
-                      <p className="font-bold text-2xl">{name}</p>
-                      <p className="text-lg">{topic}</p>
+                    <div className="flex flex-col gap-1">
+                      <p className="font-semibold text-xl text-gray-800">{name}</p>
+                      <p className="text-sm text-gray-500">{topic}</p>
                     </div>
                   </div>
                 </Link>
               </TableCell>
               <TableCell>
-                <div className="subject-badge w-fit max-md:hidden">
+                <div className="subject-badge w-fit max-md:hidden py-2 px-4 rounded-full bg-gray-100 text-gray-700 capitalize">
                   {subject}
                 </div>
                 <div
@@ -75,7 +75,7 @@ const CompanionsList = ({
               </TableCell>
               <TableCell>
                 <div className="flex items-center gap-2 w-full justify-end">
-                  <p className="text-2xl">
+                  <p className="text-xl text-gray-800">
                     {duration} <span className="max-md:hidden">mins</span>
                   </p>
                   <Image

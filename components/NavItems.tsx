@@ -6,7 +6,7 @@ import {cn} from "@/lib/utils";
 
 const navItems = [
     { label:'Home', href: '/' },
-    { label: 'Tutor Agents', href: '/companions' },
+    { label: 'TutorAgents', href: '/companions' },
     { label: 'My Journey', href: 'my-journey' },
 ]
 
@@ -14,7 +14,7 @@ const NavItems = () => {
     const pathname = usePathname();
 
     return (
-        <nav className="flex items-center gap-4">
+        <nav className="flex items-center gap-2 md:gap-8">
             {navItems.map(({ label, href }) => (
                 <Link
                     href={href}

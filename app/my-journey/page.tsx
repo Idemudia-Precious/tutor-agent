@@ -25,46 +25,51 @@ const Profile = async () => {
 
   return (
     <main className="min-lg:w-3/4">
-      <section className="flex justify-between gap-4 max-sm:flex-col items-center">
-        <div className="flex gap-4 items-center">
+      <section className="flex justify-between gap-6 max-sm:flex-col items-center p-6 bg-gray-100 rounded-xl shadow-lg">
+        <div className="flex gap-6 items-center max-sm:flex-col">
           <Image
             src={user.imageUrl}
             alt={user.firstName!}
             width={110}
             height={110}
+            className="rounded-full border-1 border-primary"
           />
           <div className="flex flex-col gap-2">
-            <h1 className="font-bold text-2xl">
+            <h1 className="font-extrabold text-3xl text-gray-800 hover:text-primary transition duration-200">
               {user.firstName} {user.lastName}
             </h1>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-gray-500">
               {user.emailAddresses[0].emailAddress}
             </p>
           </div>
         </div>
-        <div className="flex gap-4">
-          <div className="border border-black rouded-lg p-3 gap-2 flex flex-col h-fit">
-            <div className="flex gap-2 items-center">
+        <div className="flex gap-6 max-sm:mt-6">
+          <div className="border border-gray-300 rounded-lg p-4 flex flex-col gap-3 h-fit bg-white shadow-md hover:shadow-lg transition duration-200">
+            <div className="flex gap-3 items-center">
               <Image
                 src="/icons/check.svg"
                 alt="checkmark"
-                width={22}
-                height={22}
+                width={24}
+                height={24}
               />
-              <p className="text-2xl font-bold">{sessionHistory.length}</p>
+              <p className="text-3xl font-bold text-gray-800">
+                {sessionHistory.length}
+              </p>
             </div>
-            <div>Lessons completed</div>
+            <div className="text-sm text-gray-500">Lessons completed</div>
           </div>
-          <div className="border border-black rouded-lg p-3 gap-2 flex flex-col h-fit">
-            <div className="flex gap-2 items-center">
-              <Image src="/icons/cap.svg" alt="cap" width={22} height={22} />
-              <p className="text-2xl font-bold">{companions.length}</p>
+          <div className="border border-gray-300 rounded-lg p-4 flex flex-col gap-3 h-fit bg-white shadow-md hover:shadow-lg transition duration-200">
+            <div className="flex gap-3 items-center">
+              <Image src="/icons/cap.svg" alt="cap" width={24} height={24} />
+              <p className="text-3xl font-bold text-gray-800">
+                {companions.length}
+              </p>
             </div>
-            <div>TutorAgents created</div>
+            <div className="text-sm text-gray-500">TutorAgents created</div>
           </div>
         </div>
       </section>
-      
+
       <Accordion type="multiple">
         <AccordionItem value="bookmarks">
           <AccordionTrigger className="text-2xl font-bold">
