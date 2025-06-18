@@ -9,7 +9,7 @@ import { redirect } from "next/navigation";
 import {
   getUserCompanions,
   getUserSessions,
-  //getBookmarkedCompanions,
+  getBookmarkedCompanions,
 } from "@/lib/actions/companion.actions";
 import Image from "next/image";
 import CompanionsList from "@/components/CompanionsList";
@@ -21,7 +21,7 @@ const Profile = async () => {
 
   const companions = await getUserCompanions(user.id);
   const sessionHistory = await getUserSessions(user.id);
-  //const bookmarkedCompanions = await getBookmarkedCompanions(user.id);
+  const bookmarkedCompanions = await getBookmarkedCompanions(user.id);
 
   return (
     <main className="min-lg:w-3/4">
@@ -60,13 +60,22 @@ const Profile = async () => {
               <Image src="/icons/cap.svg" alt="cap" width={22} height={22} />
               <p className="text-2xl font-bold">{companions.length}</p>
             </div>
-            <div>Companions created</div>
+            <div>TutorAgents created</div>
           </div>
         </div>
       </section>
+      
       <Accordion type="multiple">
         <AccordionItem value="bookmarks">
-          
+          <AccordionTrigger className="text-2xl font-bold">
+            Bookmarked TutorAgents {`(${bookmarkedCompanions.length})`}
+          </AccordionTrigger>
+          <AccordionContent>
+            <CompanionsList
+              companions={bookmarkedCompanions}
+              title="Bookmarked Companions"
+            />
+          </AccordionContent>
         </AccordionItem>
         <AccordionItem value="recent">
           <AccordionTrigger className="text-2xl font-bold">
@@ -81,7 +90,7 @@ const Profile = async () => {
         </AccordionItem>
         <AccordionItem value="companions">
           <AccordionTrigger className="text-2xl font-bold">
-            My Companions {`(${companions.length})`}
+            My TutorAgents {`(${companions.length})`}
           </AccordionTrigger>
           <AccordionContent>
             <CompanionsList title="My Companions" companions={companions} />
