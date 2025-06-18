@@ -66,10 +66,10 @@ const CompanionForm = () => {
                     name="name"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Companion name</FormLabel>
+                            <FormLabel>TutorAgent name</FormLabel>
                             <FormControl>
                                 <Input
-                                    placeholder="Enter the companion name"
+                                    placeholder="Enter the TutorAgent name"
                                     {...field}
                                     className="input"
                                 />
@@ -115,7 +115,7 @@ const CompanionForm = () => {
                     name="topic"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>What should the companion help with?</FormLabel>
+                            <FormLabel>What should the TutorAgent help with?</FormLabel>
                             <FormControl>
                                 <Textarea
                                     placeholder="Ex. Derivates & Integrals"
@@ -196,7 +196,7 @@ const CompanionForm = () => {
                     name="duration"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Estimated session duration in minutes</FormLabel>
+                            <FormLabel>Estimated tutorial duration in minutes</FormLabel>
                             <FormControl>
                                 <Input
                                     type="number"
